@@ -160,12 +160,14 @@ function howManyTimesElementRepeated(wordsCount, word) {
       count++;
     }
   }
-  if (count == 1) {
+  if (count == 0) {
+    return 0;
+  } else if (count == 1) {
     return 1;
   } else if (count == 5) {
     return 5;
   } else {
-    return 0;
+    return count;
   }
 }
 
