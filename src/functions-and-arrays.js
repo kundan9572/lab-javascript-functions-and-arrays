@@ -117,7 +117,25 @@ avg(wordsArr)
 
 // Progression #5: Unique arrays
 function uniquifyArray(wordsUnique) {
-
+  if (wordsUnique.length == 0) {
+    return null;
+  }
+  var outputArray = [];
+  var count = 0;
+  var start = false;
+  for (j = 0; j < wordsUnique.length; j++) {
+    for (k = 0; k < outputArray.length; k++) {
+      if (wordsUnique[j] == outputArray[k]) {
+        start = true;
+      }
+    }
+    count++;
+    if (count == 1 && start == false) {
+      outputArray.push(wordsUnique[j]);
+    }
+    start = false;
+    count = 0;
+  }
 }
 const wordsUnique = [
   'bread',
@@ -133,6 +151,7 @@ const wordsUnique = [
   'egg',
   'flour'
 ];
+uniquifyArray(wordsUnique)
 
 // Progression #6: Find elements
 function searchElement(wordsFind, word) {
